@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from models import db, User
 from forms import UsersForm
+from flask_heroku import Heroku
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/homework_users'
+heroku = Heroku(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/homework_users'
 db.init_app(app)
 
 app.secret_key = "e14a-key"
