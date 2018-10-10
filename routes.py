@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from models import db, User
 from forms import UsersForm
-from flask_heroku import Heroku
 
-app = Flask(__name__)
+## To run locally ##
+#app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/homework_users'
+
+## To run from Heroku ##
+from flask_heroku import Heroku
+app = Flask(__name__)
 heroku = Heroku(app)
 
 db.init_app(app)

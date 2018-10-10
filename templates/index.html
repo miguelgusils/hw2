@@ -4,7 +4,7 @@
 {% set rlist = [] %}
 {% for row in users %}
 {% if row is not none %}
-    {{ rlist.append( row.uid ) }}
+    {% set x = rlist.append( row.uid )%}
   {%else%}
    NONE
   {% endif %}
